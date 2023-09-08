@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Calendar_todoList</title>
+</head>
+<body>
+    <h3 class="title">Calendar TodoList</h3>
+     <div class="calendarWrap">
+     <div class="calender_leftWrap">
+        <div class="calender_left">
+            <ul id="resultDay"><p></p></ul>
+           <ul id="resultDate"><p></p></ul>
+        </div>
+        <div class="todoList">
+            <ul class="todoBox"><input type="text"><button>write</button></ul>
+            <ul class="todoContent">
+               <li><p>내용</p><span class="delete">X</span></li>
+            </ul>
+        </div>
+    </div>
+        <div class="calender_right">
+            <div class="calendarbtnWrap">
+               <span class="prev monthBtn"><</span><p class="monthBox"></p><span class="year"></span><span class="next monthBtn">></span>
+            </div>
+            <div class="calendarBox">
+                <ul class="calendar_Date">
+                   <li>Dates</li>
+                </ul>
+                <ul class="calendar_Content">
+                    <li><p></p></li>
+                </ul>
+            </div>
+        </div>
+
+
+     </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
