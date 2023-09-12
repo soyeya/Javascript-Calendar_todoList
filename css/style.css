@@ -59,19 +59,15 @@ a:visited{color:#000;}
     display: flex;
     align-items: center;
     justify-content: center;
-
-}
-
-.calendarWrap .calender_leftWrap .calender_left ul p{
-
     color:#333;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: 3px;
     text-transform: uppercase;
+
 }
 
-.calendarWrap .calender_leftWrap .calender_left ul:nth-child(1) p{
+.calendarWrap .calender_leftWrap .calender_left ul:nth-child(1){
 
     font-size: 16px;
 
@@ -98,6 +94,13 @@ a:visited{color:#000;}
     justify-content: center;
 
 }
+
+.calendarWrap .calender_leftWrap .todoList .todoContent li.checked{
+
+   color:#d4d4d2;
+
+}
+
 
 .calendarWrap .calender_leftWrap .todoList .todoBox{
 
@@ -256,4 +259,12 @@ a:visited{color:#000;}
     background-color: #333;
     color:#eaeaea;
     border-radius: 30px;
+}
+
+.calendarWrap .calender_right .calendar_Content li p.active{
+
+    background-color: #333;
+    color:#eaeaea;
+    border-radius: 30px;
+
 }
