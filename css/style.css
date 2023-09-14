@@ -268,3 +268,8 @@ a:visited{color:#000;}
     border-radius: 30px;
 
 }
+
+.del_todo{
+
+    display:none;
+}

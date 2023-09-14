@@ -40,7 +40,6 @@ console.log(pageYear[first.getMonth()]);
 
 
 
-
 // Calendar 표시
 let calendarBody = document.querySelector(".calendar_Content");
 
@@ -87,11 +86,20 @@ showCalendar();
 function del_Canlendar(){
 
     let catchWeek = 100;
+
     for(var i = 0; i < 106; i++){
-      
-        let $week = document.getElementById(catchWeek);
-        $week.remove();
+        
+        let $weekCont = document.getElementById(catchWeek);
+
+    if($weekCont === null){
+
+    }else{
+
+        console.log($weekCont);
         catchWeek++;
+        $weekCont.remove();
+    }
+       
 
     }
 }
@@ -282,7 +290,8 @@ let dateCnt = 1;
 let keyValue = today.getFullYear() + '' + today.getMonth() + '' + today.getDate();
 
 
-
+let todoList = [];
+todoList[keyValue] = [];
 
 function resetTodo(){
 
@@ -327,66 +336,78 @@ function resetTodo(){
               e1.remove();
             });
 
-            var $list = document.createElement('div');
-
             for(var i = 0; i < todoList[keyValue].length; i++){
-
-                var $list = document.createElement('li');
-                $list.textContent = '-' + todoList[keyValue][i];
-                var $btn = document.createElement('span');
-                $btn.setAttribute('id', dateCnt+keyValue);
-                $btn.setAttribute('class', 'delete');
+            
+                let $list = document.createElement('li');
+                $list.textContent =  todoList[keyValue];
+            
+                let $btn = document.createElement('span');
+                $btn.classList.add('delete');
                 $btn.textContent = delBtn;
-                inputList.appendChild($list);
-                $list.appendChild($btn);
-
-                $list.addEventListener('click', checkList);
-                $btn.addEventListener('click', deleteTodo);
-
+            
+                inputList.append($list);
+                $list.append($btn);
+            
+                $list.addEventListener("click" , checkList);
+                $btn.addEventListener("click" , delContent);
+            
                 inputBox.value = '';
 
-                function deleteTodo(){
-
-                    $list.remove();
-                    $btn.remove();
-                    console.log($list);
-                    console.log($btn);
-        
-
+                function delContent(){
+            
+                    inputList.removeChild($list);
+                    $list.removeChild($btn);
+                    todoList[keyValue].pop(inputBox.value);
+                    
+            
                 }
+                
+               
             }
+            
         }
     
     }
 
 
-let todoList = [];
-todoList[keyValue] = [];
-
 function addTodoList(){
+
+
+    if(inputBox.value.trim() == ""){
+
+        alert('할일을 입력해주세요');
+
+    }else{
+
 
     let $list = document.createElement('li');
     $list.textContent = inputBox.value;
 
     let $btn = document.createElement('span');
-    $btn.setAttribute('class' , 'delete');
-    $btn.setAttribute('id' , dateCnt+keyValue);
+    $btn.classList.add('delete');
     $btn.textContent = delBtn;
 
-    inputList.appendChild($list);
-    $list.appendChild($btn);
+    inputList.append($list);
+    $list.append($btn);
 
     todoList[keyValue].push(inputBox.value);
     dateCnt++;
     inputBox.value = '';
+
     $list.addEventListener("click" , checkList);
-    $btn.addEventListener("click" , deleteTodo);
+    $btn.addEventListener("click" , delContent);
 
-    function deleteTodo(){
+    function delContent(){
 
-        $list.remove();
-        $btn.remove();
+        inputList.removeChild($list);
+        $list.removeChild($btn);
+        todoList[keyValue].pop(inputBox.value);
+
     }
+    }
+
+
+
 
 }
 
